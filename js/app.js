@@ -1,16 +1,25 @@
 let dataSeries = [];
 
-// Chargement du JSON
+// =======================
+// CHARGEMENT DU JSON
+// =======================
 async function chargerBibliotheque() {
-    const url = "./data/bibliotheque.json";
-    const response = await fetch(url);
-    dataSeries = await response.json();
-    afficherSeries(dataSeries);
-    activerRecherche();
-    activerTriSeries();
-    activerModeSombre();
+    try {
+        const response = await fetch("./data/bibliotheque.json");
+        dataSeries = await response.json();
+
+        afficherSeries(dataSeries);
+        activerRecherche();
+        activerTriSeries();
+        activerModeSombre();
+    } catch (e) {
+        console.error("Erreur de chargement du JSON :", e);
+    }
 }
 
+// =======================
+// MODE SOMBRE / CLAIR
+// =======================
 function activerModeSombre() {
     const bouton = document.getElementById("theme-toggle");
     const theme = localStorage.getItem("theme") || "dark";
@@ -30,14 +39,15 @@ function activerModeSombre() {
     });
 }
 
-/* AFFICHAGE DES SÉRIES */
-
+// =======================
+// AFFICHAGE DES SÉRIES
+// =======================
 function afficherSeries(series) {
     const container = document.getElementById("liste-series");
     container.innerHTML = "";
 
     const triTomesSelect = document.getElementById("tri-tomes-select");
-    triTomesSelect.style.display = "none";
+    if (triTomesSelect) triTomesSelect.style.display = "none";
 
     series.forEach(serie => {
         const div = document.createElement("div");
@@ -53,34 +63,53 @@ function afficherSeries(series) {
     });
 }
 
-/* PAGE SÉRIE */
-
+// =======================
+// PAGE SÉRIE (LISTE DES TOMES)
+// =======================
 function afficherTomes(series, serie) {
     const container = document.getElementById("liste-series");
     container.innerHTML = "";
 
     const triTomesSelect = document.getElementById("tri-tomes-select");
-    triTomesSelect.style.display = "inline-block";
-    triTomesSelect.value = "";
+    if (triTomesSelect) {
+        triTomesSelect.style.display = "inline-block";
+        triTomesSelect.value = "";
+    }
 
-    // Flèche retour minimaliste
+    // Barre d'en-tête de la série
+    const headerSerie = document.createElement("div");
+    headerSerie.classList.add("serie-header");
+
+    // Flèche retour
     const retour = document.createElement("div");
-    retour.classList.add("retour-fleche");
+    retour.classList.add("serie-retour");
     retour.innerHTML = "←";
-    retour.addEventListener("click", () => afficherTomes(series, serie));
-    container.appendChild(retour);
+    retour.addEventListener("click", () => {
+        if (triTomesSelect) triTomesSelect.style.display = "none";
+        afficherSeries(series);
+    });
 
-
+    // Nom de la série
     const titre = document.createElement("h1");
-    titre.classList.add("page-serie-titre");
+    titre.classList.add("serie-titre");
     titre.textContent = serie.serie;
-    container.appendChild(titre);
 
-    const statut = document.createElement("p");
-    statut.classList.add("page-serie-statut");
-    statut.textContent = serie.statut || "Statut : inconnu";
-    container.appendChild(statut);
+    // Statut coloré
+    const statut = document.createElement("span");
+    statut.classList.add("serie-statut");
+    const statutTexte = (serie.statut || "Inconnu").toLowerCase();
+    statut.textContent = serie.statut || "Inconnu";
 
+    if (statutTexte === "en cours") statut.classList.add("statut-en-cours");
+    else if (statutTexte === "terminée" || statutTexte === "terminee") statut.classList.add("statut-terminee");
+    else if (statutTexte === "abandonnée" || statutTexte === "abandonnee") statut.classList.add("statut-abandonnee");
+
+    headerSerie.appendChild(retour);
+    headerSerie.appendChild(titre);
+    headerSerie.appendChild(statut);
+    container.appendChild(headerSerie);
+
+    // Grille des tomes
     const grille = document.createElement("div");
     grille.classList.add("grille-tomes");
     grille.id = "grille-tomes";
@@ -90,10 +119,13 @@ function afficherTomes(series, serie) {
     activerTriTomes(serie);
 }
 
-/* LISTE DES TOMES */
-
+// =======================
+// LISTE DES TOMES D'UNE SÉRIE
+// =======================
 function afficherListeTomes(tomes, serie, series) {
     const grille = document.getElementById("grille-tomes");
+    if (!grille) return;
+
     grille.innerHTML = "";
 
     tomes.forEach(tome => {
@@ -111,21 +143,24 @@ function afficherListeTomes(tomes, serie, series) {
     });
 }
 
-/* FICHE TOME AVEC TOUTES LES INFOS DU JSON */
-
+// =======================
+// PAGE TOME (FICHE)
+// =======================
 function afficherFicheTome(series, serie, tome) {
     const container = document.getElementById("liste-series");
     container.innerHTML = "";
 
     const triTomesSelect = document.getElementById("tri-tomes-select");
-    triTomesSelect.style.display = "none";
+    if (triTomesSelect) triTomesSelect.style.display = "none";
 
-    const boutonRetour = document.createElement("button");
-    boutonRetour.classList.add("btn-retour");
-    boutonRetour.innerHTML = "← Retour à la série";
-    boutonRetour.addEventListener("click", () => afficherTomes(series, serie));
-    container.appendChild(boutonRetour);
+    // Flèche retour en haut de la fiche
+    const retour = document.createElement("div");
+    retour.classList.add("retour-fleche");
+    retour.innerHTML = "←";
+    retour.addEventListener("click", () => afficherTomes(series, serie));
+    container.appendChild(retour);
 
+    // Layout fiche
     const fiche = document.createElement("div");
     fiche.classList.add("fiche-tome-layout");
 
@@ -161,24 +196,30 @@ function afficherFicheTome(series, serie, tome) {
 
     container.appendChild(fiche);
 
+    // Navigation précédent / suivant
     const index = serie.tomes.indexOf(tome);
-
     const prevBtn = document.getElementById("tome-prev");
     const nextBtn = document.getElementById("tome-next");
 
-    prevBtn.onclick = () => {
-        if (index > 0) afficherFicheTome(series, serie, serie.tomes[index - 1]);
-    };
+    if (prevBtn) {
+        prevBtn.onclick = () => {
+            if (index > 0) afficherFicheTome(series, serie, serie.tomes[index - 1]);
+        };
+    }
 
-    nextBtn.onclick = () => {
-        if (index < serie.tomes.length - 1) afficherFicheTome(series, serie, serie.tomes[index + 1]);
-    };
+    if (nextBtn) {
+        nextBtn.onclick = () => {
+            if (index < serie.tomes.length - 1) afficherFicheTome(series, serie, serie.tomes[index + 1]);
+        };
+    }
 }
 
-/* RECHERCHE */
-
+// =======================
+// RECHERCHE
+// =======================
 function activerRecherche() {
     const input = document.getElementById("search-input");
+    if (!input) return;
 
     input.addEventListener("input", () => {
         const q = input.value.toLowerCase().trim();
@@ -204,6 +245,7 @@ function activerRecherche() {
                     ${tome.tome}
                     ${tome.résumé || ""}
                     ${tome.sommaire || ""}
+                    ${tome.critique || ""}
                 `.toLowerCase();
 
                 if (texte.includes(q)) {
@@ -221,7 +263,7 @@ function afficherResultatsRecherche(resultats) {
     container.innerHTML = "";
 
     const triTomesSelect = document.getElementById("tri-tomes-select");
-    triTomesSelect.style.display = "none";
+    if (triTomesSelect) triTomesSelect.style.display = "none";
 
     if (resultats.length === 0) {
         container.innerHTML = "<p>Aucun résultat trouvé.</p>";
@@ -247,10 +289,12 @@ function afficherResultatsRecherche(resultats) {
     });
 }
 
-/* TRI SÉRIES */
-
+// =======================
+// TRI DES SÉRIES
+// =======================
 function activerTriSeries() {
     const select = document.getElementById("tri-select");
+    if (!select) return;
 
     select.addEventListener("change", () => {
         const valeur = select.value;
@@ -275,10 +319,12 @@ function activerTriSeries() {
     });
 }
 
-/* TRI TOMES */
-
+// =======================
+// TRI DES TOMES
+// =======================
 function activerTriTomes(serie) {
     const select = document.getElementById("tri-tomes-select");
+    if (!select) return;
 
     select.onchange = () => {
         let tomes = [...serie.tomes];
@@ -309,4 +355,7 @@ function activerTriTomes(serie) {
     };
 }
 
+// =======================
+// LANCEMENT
+// =======================
 chargerBibliotheque();

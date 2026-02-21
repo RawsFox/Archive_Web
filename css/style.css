@@ -291,20 +291,64 @@ main {
     }
 }
 
-.retour-fleche {
+/* Barre d'en-tête de la page série */
+.serie-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #3a3a3a;
+    padding: 15px 20px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    box-shadow: var(--shadow-soft);
+}
+
+/* Flèche retour */
+.serie-retour {
     font-size: 2rem;
     font-weight: bold;
     cursor: pointer;
-    width: fit-content;
+    color: var(--accent);
     padding: 5px 10px;
     border-radius: 8px;
-    background: rgba(0,0,0,0.3);
-    color: var(--accent);
-    margin-bottom: 20px;
     transition: 0.2s;
 }
 
-.retour-fleche:hover {
+.serie-retour:hover {
     background: rgba(237, 127, 16, 0.2);
     transform: translateX(-3px);
+}
+
+/* Titre de la série */
+.serie-titre {
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-align: center;
+    flex: 1;
+    color: var(--text);
+}
+
+/* Statut */
+.serie-statut {
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 6px 12px;
+    border-radius: 999px;
+    text-transform: capitalize;
+}
+
+/* Couleurs dynamiques */
+.statut-en-cours {
+    background: rgba(237, 127, 16, 0.25);
+    color: #ED7F10;
+}
+
+.statut-terminee {
+    background: rgba(0, 200, 0, 0.25);
+    color: #00d000;
+}
+
+.statut-abandonnee {
+    background: rgba(255, 0, 0, 0.25);
+    color: #ff4a4a;
 }
