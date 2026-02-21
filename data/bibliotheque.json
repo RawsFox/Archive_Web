@@ -53,7 +53,7 @@
       {
         "id": 1,
         "nom": "Fire Force Tome 1",
-        "cover": "img/fire_force_tome_1.jpg",
+        "cover": "img/fire_force_t1.jpg",
         "tome": 1,
         "résumé": "L'humanité est terrifiée par le phénomène de combustion humaine. Des brigades spéciales Fire Force ont donc été mises en place avec pour mission de trouver la cause de ce mystérieux phénomène ! Le jeune Shinra, nouvelle recrue surnommée le Démon, rêve de devenir un héros. Mais le chemin sera long et il devra, avec ses camarades, apprendre à affronter quotidiennement des Torches humaines !!",
         "sommaire": "1 à 5",
@@ -70,7 +70,7 @@
       {
         "id": 2,
         "nom": "Fire Force Tome 2",
-        "cover": "img/fire_force_tome_2.jpg",
+        "cover": "img/fire_force_t2.jpg",
         "tome": 2,
         "résumé": "L'humanité tout entière est terrifiée par le phénomène de combustion humaine. Des brigades spéciales ont donc été mises en place avec pour mission de trouver la cause de ce mystérieux phénomène ! Le jeune Shinra, nouvelle recrue surnommée le Démon, rêve de devenir un héros. Mais le chemin sera long et il devra, avec ses camarades, apprendre à affronter quotidiennement les Torches humaines !!",
         "sommaire": "1 à 5",
