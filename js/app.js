@@ -48,9 +48,6 @@ function afficherSeries(series) {
 
     document.querySelector(".toolbar").style.display = "flex";
 
-    const triTomesSelect = document.getElementById("tri-tomes-select");
-    if (triTomesSelect) triTomesSelect.style.display = "none";
-
     series.forEach(serie => {
         const div = document.createElement("div");
         div.classList.add("carte-serie");
@@ -73,12 +70,6 @@ function afficherTomes(series, serie) {
     container.innerHTML = "";
 
     document.querySelector(".toolbar").style.display = "none";
-
-    const triTomesSelect = document.getElementById("tri-tomes-select");
-    if (triTomesSelect) {
-        triTomesSelect.style.display = "none";
-        triTomesSelect.value = "";
-    }
 
     // --- Barre d'en-tête ---
     const headerSerie = document.createElement("div");
@@ -306,6 +297,42 @@ function activerTriSeries() {
 
         afficherSeries(copie);
     });
+}
+
+// =======================
+// TRI DES TOMES (si tu veux le remettre plus tard)
+// =======================
+function activerTriTomes(serie) {
+    const select = document.getElementById("tri-tomes-select");
+    if (!select) return;
+
+    select.onchange = () => {
+        let tomes = [...serie.tomes];
+        const tri = select.value;
+
+        switch (tri) {
+            case "numero-asc":
+                tomes.sort((a, b) => a.tome - b.tome);
+                break;
+            case "numero-desc":
+                tomes.sort((a, b) => b.tome - a.tome);
+                break;
+            case "note-asc":
+                tomes.sort((a, b) => (a.note || 0) - (b.note || 0));
+                break;
+            case "note-desc":
+                tomes.sort((a, b) => (b.note || 0) - (a.note || 0));
+                break;
+            case "alpha-asc":
+                tomes.sort((a, b) => a.nom.localeCompare(b.nom));
+                break;
+            case "alpha-desc":
+                tomes.sort((a, b) => b.nom.localeCompare(a.nom));
+                break;
+        }
+
+        afficherListeTomes(tomes, serie, dataSeries);
+    };
 }
 
 // =======================

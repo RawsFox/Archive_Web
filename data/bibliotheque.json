@@ -28,7 +28,7 @@
     "tomes": [
       {
         "id": 1,
-        "nom": "ZOO !",
+        "nom": "Le dernier fils de Krypton",
         "cover": "img/absolute_superman_t1.jpg",
         "tome": 1,
         "résumé": "Que serait devenu Superman s'il avait été élevé sur Krypton ? S'il avait dû fuir sa famille pour échapper au destin tragique de sa civilisation ? S'il n'avait pas reçu le code moral de la famille humaine des Kent ? C'est ce que propose de découvrir ce récit mettant en scène l'histoire épique et tragique du dernier fils de Krypton dans un univers plus sombre et réaliste !",
@@ -45,7 +45,6 @@
       }
     ]
   },
-[
   {
     "serie": "Fire Force",
     "statut": "En cours",
@@ -86,5 +85,4 @@
       }
     ]
   }
-]
 ]

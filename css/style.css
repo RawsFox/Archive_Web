@@ -171,7 +171,7 @@ main {
 }
 
 .serie-retour {
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: bold;
     cursor: pointer;
     color: var(--accent);
@@ -262,7 +262,7 @@ main {
 =========================== */
 
 .retour-fleche {
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: bold;
     cursor: pointer;
     width: fit-content;
@@ -276,7 +276,7 @@ main {
 
 .fiche-tome-layout {
     display: grid;
-    grid-template-columns: minmax(280px, 400px) 1fr;
+    grid-template-columns: 450px 1fr;
     gap: 40px;
     background: #3a3a3a;
     padding: 30px;
