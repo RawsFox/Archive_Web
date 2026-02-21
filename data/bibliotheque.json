@@ -1,6 +1,7 @@
 [
   {
     "serie": "Absolut Batman",
+    "statut": "En cours",
     "tomes": [
       {
         "id": 1,
@@ -22,7 +23,8 @@
     ]
   },
     {
-    "serie": "Absolut Superman",
+    "serie": "Absolute Superman",
+    "statut": "En cours",
     "tomes": [
       {
         "id": 1,
@@ -43,8 +45,10 @@
       }
     ]
   },
-      {
+[
+  {
     "serie": "Fire Force",
+    "statut": "En cours",
     "tomes": [
       {
         "id": 1,
@@ -82,4 +86,5 @@
       }
     ]
   }
+]
 ]
