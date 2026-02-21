@@ -30,7 +30,7 @@ body {
 }
 
 /* ===========================
-   HEADER + MENU
+   HEADER
 =========================== */
 
 header {
@@ -92,12 +92,8 @@ header {
     transition: 0.2s;
 }
 
-#theme-toggle:hover {
-    background: #333;
-}
-
 /* ===========================
-   BARRE D’OUTILS
+   TOOLBAR (ACCUEIL SEULEMENT)
 =========================== */
 
 .toolbar {
@@ -122,12 +118,6 @@ header {
 
 .toolbar input {
     flex: 1;
-}
-
-.toolbar input:focus,
-.toolbar select:focus {
-    border-color: var(--accent);
-    box-shadow: 0 0 0 2px var(--accent-soft);
 }
 
 /* ===========================
@@ -165,33 +155,85 @@ main {
     background: #4a4a4a;
 }
 
-.carte-serie h2 {
-    font-size: 1.2rem;
-    margin-bottom: 6px;
+/* ===========================
+   PAGE SÉRIE (BARRE EN HAUT)
+=========================== */
+
+.serie-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #3a3a3a;
+    padding: 15px 20px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    box-shadow: var(--shadow-soft);
 }
 
-.carte-serie p {
-    color: var(--text-muted);
+.serie-retour {
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+    color: var(--accent);
+    padding: 5px 10px;
+    border-radius: 8px;
+    transition: 0.2s;
+}
+
+.serie-retour:hover {
+    background: rgba(237, 127, 16, 0.2);
+    transform: translateX(-3px);
+}
+
+.serie-titre {
+    flex: 1;
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.serie-statut {
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+.statut-en-cours {
+    background: rgba(237, 127, 16, 0.25);
+    color: #ED7F10;
+}
+
+.statut-terminee {
+    background: rgba(0, 200, 0, 0.25);
+    color: #00d000;
+}
+
+.statut-abandonnee {
+    background: rgba(255, 0, 0, 0.25);
+    color: #ff4a4a;
 }
 
 /* ===========================
-   PAGE SÉRIE (LISTE DES TOMES)
+   GRILLE DES TOMES (5 COLONNES)
 =========================== */
-
-.page-serie-titre {
-    font-size: 2rem;
-    margin-bottom: 5px;
-}
-
-.page-serie-statut {
-    color: var(--accent);
-    margin-bottom: 25px;
-}
 
 .grille-tomes {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(5, 1fr);
     gap: 25px;
+}
+
+@media (max-width: 1400px) {
+    .grille-tomes { grid-template-columns: repeat(4, 1fr); }
+}
+
+@media (max-width: 1100px) {
+    .grille-tomes { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 800px) {
+    .grille-tomes { grid-template-columns: repeat(2, 1fr); }
 }
 
 .carte-tome {
@@ -215,13 +257,22 @@ main {
     object-fit: cover;
 }
 
-.carte-tome h3 {
-    margin-top: 10px;
-}
-
 /* ===========================
-   PAGE TOME (FICHE)
+   PAGE TOME
 =========================== */
+
+.retour-fleche {
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+    width: fit-content;
+    padding: 5px 10px;
+    border-radius: 8px;
+    background: rgba(0,0,0,0.3);
+    color: var(--accent);
+    margin-bottom: 20px;
+    transition: 0.2s;
+}
 
 .fiche-tome-layout {
     display: grid;
@@ -231,8 +282,6 @@ main {
     padding: 30px;
     border-radius: 14px;
     box-shadow: var(--shadow-soft);
-    width: 100%;
-    margin-top: 20px;
 }
 
 .fiche-cover img {
@@ -258,10 +307,6 @@ main {
     transition: 0.2s;
 }
 
-.nav-tome-btn:hover {
-    background: #ff9a3a;
-}
-
 .fiche-right h2 {
     color: var(--accent);
     margin-bottom: 10px;
@@ -270,85 +315,4 @@ main {
 .fiche-right p {
     margin-bottom: 8px;
     color: var(--text-muted);
-}
-
-.fiche-right p strong {
-    color: var(--text);
-}
-
-/* ===========================
-   RESPONSIVE
-=========================== */
-
-@media (max-width: 900px) {
-    .fiche-tome-layout {
-        grid-template-columns: 1fr;
-    }
-
-    .fiche-cover img {
-        max-width: 300px;
-        margin: 0 auto;
-    }
-}
-
-/* Barre d'en-tête de la page série */
-.serie-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: #3a3a3a;
-    padding: 15px 20px;
-    border-radius: 10px;
-    margin-bottom: 25px;
-    box-shadow: var(--shadow-soft);
-}
-
-/* Flèche retour */
-.serie-retour {
-    font-size: 2rem;
-    font-weight: bold;
-    cursor: pointer;
-    color: var(--accent);
-    padding: 5px 10px;
-    border-radius: 8px;
-    transition: 0.2s;
-}
-
-.serie-retour:hover {
-    background: rgba(237, 127, 16, 0.2);
-    transform: translateX(-3px);
-}
-
-/* Titre de la série */
-.serie-titre {
-    font-size: 1.8rem;
-    font-weight: 700;
-    text-align: center;
-    flex: 1;
-    color: var(--text);
-}
-
-/* Statut */
-.serie-statut {
-    font-size: 1rem;
-    font-weight: bold;
-    padding: 6px 12px;
-    border-radius: 999px;
-    text-transform: capitalize;
-}
-
-/* Couleurs dynamiques */
-.statut-en-cours {
-    background: rgba(237, 127, 16, 0.25);
-    color: #ED7F10;
-}
-
-.statut-terminee {
-    background: rgba(0, 200, 0, 0.25);
-    color: #00d000;
-}
-
-.statut-abandonnee {
-    background: rgba(255, 0, 0, 0.25);
-    color: #ff4a4a;
 }
