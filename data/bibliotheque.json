@@ -1,0 +1,85 @@
+[
+  {
+    "serie": "Absolut Batman",
+    "tomes": [
+      {
+        "id": 1,
+        "nom": "ZOO !",
+        "cover": "img/absolute_batman_t1.jpg",
+        "tome": 1,
+        "résumé": "Bruce Wayne ne part de rien. Il n'est pas le descendant d'un riche empire de Gotham City, il est le fils d'un professeur d'école publique qui, enfant, a vécu l'horreur inimaginable d'une fusillade, changeant à jamais la trajectoire de sa vie. Sans ressources illimitées pour le financer, sans manoir ni majordome pour s'occuper de lui, Bruce est devenu un Batman d'un genre tout à fait différent, à la fois cérébral et ultra musclé, vivant dans les quartiers les plus difficiles et les plus défavorisés de Gotham, loin de la haute société. Et alors que le gang de Black Mask sème la terreur dans la ville, il n'hésitera pas à déchainer un torrent de violence contre ses adversaires pour que le message soit clair : il y a un nouveau Batman en ville.",
+        "sommaire": "1 à 6",
+        "auteur": "Snyder Scott",
+        "dessinateur": "Dragotta Nick",
+        "editeur_vf": "Urban Comics",
+        "editeur_vo": "DC comics",
+        "univers": "DC ALL IN",
+        "numerique": false,
+        "critique": "absolute_batman_tome 1.txt",
+        "note": 9,
+        "codebarre": "979-1026823384"
+      }
+    ]
+  },
+    {
+    "serie": "Absolut Superman",
+    "tomes": [
+      {
+        "id": 1,
+        "nom": "ZOO !",
+        "cover": "img/absolute_superman_t1.jpg",
+        "tome": 1,
+        "résumé": "Que serait devenu Superman s'il avait été élevé sur Krypton ? S'il avait dû fuir sa famille pour échapper au destin tragique de sa civilisation ? S'il n'avait pas reçu le code moral de la famille humaine des Kent ? C'est ce que propose de découvrir ce récit mettant en scène l'histoire épique et tragique du dernier fils de Krypton dans un univers plus sombre et réaliste !",
+        "sommaire": "1 à 5",
+        "auteur": "Aaron Jason",
+        "dessinateur": "Sandoval Rafa",
+        "editeur_vf": "Urban Comics",
+        "editeur_vo": "DC comics",
+        "univers": "DC ALL IN",
+        "numerique": false,
+        "critique": "absolute_superman_tome 1.txt",
+        "note": 9,
+        "codebarre": "979-1026823391"
+      }
+    ]
+  },
+      {
+    "serie": "Fire Force",
+    "tomes": [
+      {
+        "id": 1,
+        "nom": "Fire Force Tome 1",
+        "cover": "img/fire_force_tome_1.jpg",
+        "tome": 1,
+        "résumé": "L'humanité est terrifiée par le phénomène de combustion humaine. Des brigades spéciales Fire Force ont donc été mises en place avec pour mission de trouver la cause de ce mystérieux phénomène ! Le jeune Shinra, nouvelle recrue surnommée le Démon, rêve de devenir un héros. Mais le chemin sera long et il devra, avec ses camarades, apprendre à affronter quotidiennement des Torches humaines !!",
+        "sommaire": "1 à 5",
+        "auteur": "Atsushi Ohkubo",
+        "dessinateur": false,
+        "editeur_vf": "Kana éditions",
+        "editeur_vo": "Kodansha",
+        "univers": false,
+        "numerique": false,
+        "critique": "fire_force_tome_1.txt",
+        "note": 9,
+        "codebarre": "978-2505069263"
+      },
+      {
+        "id": 2,
+        "nom": "Fire Force Tome 2",
+        "cover": "img/fire_force_tome_2.jpg",
+        "tome": 2,
+        "résumé": "L'humanité tout entière est terrifiée par le phénomène de combustion humaine. Des brigades spéciales ont donc été mises en place avec pour mission de trouver la cause de ce mystérieux phénomène ! Le jeune Shinra, nouvelle recrue surnommée le Démon, rêve de devenir un héros. Mais le chemin sera long et il devra, avec ses camarades, apprendre à affronter quotidiennement les Torches humaines !!",
+        "sommaire": "1 à 5",
+        "auteur": "Atsushi Ohkubo",
+        "dessinateur": false,
+        "editeur_vf": "Kana éditions",
+        "editeur_vo": "Kodansha",
+        "univers": false,
+        "numerique": false,
+        "critique": "fire_force_tome_2.txt",
+        "note": 9,
+        "codebarre": "978-2505069270"
+      }
+    ]
+  }
+]
