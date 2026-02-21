@@ -1,3 +1,7 @@
+/* ===========================
+   THEME GLOBAL
+=========================== */
+
 :root {
     --bg: #303030;
     --bg-elevated: #3a3a3a;
@@ -13,26 +17,28 @@
 }
 
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    background: radial-gradient(circle at top, #404040 0, #303030 40%, #202020 100%);
+    font-family: system-ui, sans-serif;
+    background: #303030;
     color: var(--text);
     min-height: 100vh;
 }
 
-/* HEADER */
+/* ===========================
+   HEADER + MENU
+=========================== */
 
 header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 18px 40px;
-    background: linear-gradient(90deg, #262626, #1f1f1f);
+    background: #262626;
     box-shadow: var(--shadow-soft);
     position: sticky;
     top: 0;
@@ -41,31 +47,27 @@ header {
 
 .logo {
     font-weight: 800;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
     color: var(--accent);
-    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
 }
 
 .top-nav {
     display: flex;
-    gap: 18px;
-    align-items: center;
+    gap: 20px;
 }
 
 .nav-link {
     color: var(--text-muted);
     text-decoration: none;
-    font-size: 0.9rem;
-    padding: 6px 10px;
+    padding: 6px 12px;
     border-radius: 999px;
-    transition: color var(--transition-fast), background var(--transition-fast), transform var(--transition-fast);
+    transition: 0.2s;
 }
 
 .nav-link:hover {
     color: var(--text);
-    background: rgba(255, 255, 255, 0.05);
-    transform: translateY(-1px);
+    background: rgba(255,255,255,0.05);
 }
 
 .nav-link.active {
@@ -76,237 +78,173 @@ header {
 .nav-link.accent {
     background: var(--accent);
     color: #111;
-    font-weight: 600;
+    font-weight: bold;
 }
 
 #theme-toggle {
+    background: #1f1f1f;
     border: none;
-    background: #262626;
     color: var(--text);
     width: 34px;
     height: 34px;
     border-radius: 50%;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background var(--transition-fast), transform var(--transition-fast);
+    transition: 0.2s;
 }
 
 #theme-toggle:hover {
     background: #333;
-    transform: translateY(-1px);
 }
 
-/* TOOLBAR */
+/* ===========================
+   BARRE D’OUTILS
+=========================== */
 
 .toolbar {
-    max-width: 1100px;
-    margin: 25px auto 10px;
+    width: 100%;
+    max-width: 1600px;
+    margin: 25px auto;
+    padding: 0 40px;
     display: flex;
-    gap: 12px;
-    align-items: center;
-    padding: 10px 20px;
+    gap: 15px;
 }
 
-#search-input,
-#tri-select,
-#tri-tomes-select {
-    border-radius: 999px;
-    border: 1px solid var(--border-soft);
+.toolbar input,
+.toolbar select {
     background: #262626;
+    border: 1px solid var(--border-soft);
     color: var(--text);
     padding: 10px 16px;
-    font-size: 0.9rem;
+    border-radius: 999px;
     outline: none;
-    transition: border var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
+    transition: 0.2s;
 }
 
-#search-input {
+.toolbar input {
     flex: 1;
 }
 
-#tri-select,
-#tri-tomes-select {
-    min-width: 190px;
-}
-
-#search-input:focus,
-#tri-select:focus,
-#tri-tomes-select:focus {
+.toolbar input:focus,
+.toolbar select:focus {
     border-color: var(--accent);
-    box-shadow: 0 0 0 1px var(--accent-soft);
-    background: #2c2c2c;
+    box-shadow: 0 0 0 2px var(--accent-soft);
 }
 
-/* MAIN */
+/* ===========================
+   CONTENU PRINCIPAL
+=========================== */
 
 main {
-    max-width: 1100px;
+    width: 100%;
+    max-width: 1600px;
     margin: 0 auto 40px;
-    padding: 0 20px 20px;
+    padding: 0 40px;
 }
 
-/* SÉRIES GRID */
+/* ===========================
+   PAGE COLLECTION (SÉRIES)
+=========================== */
 
 #liste-series {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
 }
-
-/* CARTE SÉRIE */
 
 .carte-serie {
     background: var(--bg-card);
+    padding: 20px;
     border-radius: var(--radius);
-    padding: 18px 16px;
     box-shadow: var(--shadow-soft);
     cursor: pointer;
-    position: relative;
-    overflow: hidden;
-    transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
-}
-
-.carte-serie::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(circle at top left, var(--accent-soft), transparent 55%);
-    opacity: 0;
-    transition: opacity var(--transition-fast);
+    transition: 0.2s;
 }
 
 .carte-serie:hover {
     transform: translateY(-4px);
-    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7);
-    background: #474747;
-}
-
-.carte-serie:hover::before {
-    opacity: 1;
+    background: #4a4a4a;
 }
 
 .carte-serie h2 {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     margin-bottom: 6px;
 }
 
 .carte-serie p {
-    font-size: 0.85rem;
     color: var(--text-muted);
 }
 
-/* BOUTON RETOUR */
-
-.btn-retour {
-    border-radius: 999px;
-    border: 1px solid var(--border-soft);
-    background: #262626;
-    color: var(--text);
-    padding: 8px 14px;
-    font-size: 0.85rem;
-    cursor: pointer;
-    margin-bottom: 18px;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    transition: background var(--transition-fast), border var(--transition-fast), transform var(--transition-fast);
-}
-
-.btn-retour:hover {
-    background: #333;
-    border-color: var(--accent);
-    transform: translateY(-1px);
-}
-
-/* PAGE SÉRIE */
+/* ===========================
+   PAGE SÉRIE (LISTE DES TOMES)
+=========================== */
 
 .page-serie-titre {
-    font-size: 1.6rem;
-    font-weight: 700;
-    margin-bottom: 4px;
+    font-size: 2rem;
+    margin-bottom: 5px;
 }
 
 .page-serie-statut {
-    font-size: 0.9rem;
     color: var(--accent);
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
-
-/* GRILLE TOMES */
 
 .grille-tomes {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
-    gap: 18px;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
 }
 
 .carte-tome {
     background: var(--bg-card);
+    padding: 15px;
     border-radius: var(--radius);
-    padding: 12px;
     box-shadow: var(--shadow-soft);
     cursor: pointer;
-    transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+    transition: 0.2s;
 }
 
 .carte-tome:hover {
     transform: translateY(-4px);
-    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7);
-    background: #474747;
+    background: #4a4a4a;
 }
 
 .carte-tome img {
     width: 100%;
-    border-radius: 8px;
-    object-fit: cover;
+    border-radius: 10px;
     aspect-ratio: 2/3;
+    object-fit: cover;
 }
 
 .carte-tome h3 {
-    font-size: 0.95rem;
+    margin-top: 10px;
 }
 
-.carte-tome p {
-    font-size: 0.8rem;
-    color: var(--text-muted);
-}
-
-/* FICHE TOME LAYOUT */
+/* ===========================
+   PAGE TOME (FICHE)
+=========================== */
 
 .fiche-tome-layout {
     display: grid;
-    grid-template-columns: 320px 1fr;
-    gap: 30px;
-    margin-top: 20px;
+    grid-template-columns: minmax(280px, 400px) 1fr;
+    gap: 40px;
     background: #3a3a3a;
-    padding: 25px;
+    padding: 30px;
     border-radius: 14px;
     box-shadow: var(--shadow-soft);
-}
-
-.fiche-left {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+    width: 100%;
+    margin-top: 20px;
 }
 
 .fiche-cover img {
     width: 100%;
     border-radius: 12px;
     box-shadow: 0 8px 25px rgba(0,0,0,0.6);
-    object-fit: cover;
-    aspect-ratio: 2/3;
 }
 
 .fiche-nav-tomes {
     display: flex;
     justify-content: space-between;
-    gap: 10px;
+    margin-top: 15px;
 }
 
 .nav-tome-btn {
@@ -317,13 +255,11 @@ main {
     cursor: pointer;
     font-weight: bold;
     color: #111;
-    font-size: 0.85rem;
     transition: 0.2s;
 }
 
 .nav-tome-btn:hover {
     background: #ff9a3a;
-    transform: translateY(-2px);
 }
 
 .fiche-right h2 {
@@ -332,8 +268,7 @@ main {
 }
 
 .fiche-right p {
-    margin-bottom: 6px;
-    font-size: 0.95rem;
+    margin-bottom: 8px;
     color: var(--text-muted);
 }
 
@@ -341,32 +276,17 @@ main {
     color: var(--text);
 }
 
-/* MODE CLAIR OPTIONNEL */
+/* ===========================
+   RESPONSIVE
+=========================== */
 
-body.light {
-    background: #f5f5f5;
-    color: #111;
-}
+@media (max-width: 900px) {
+    .fiche-tome-layout {
+        grid-template-columns: 1fr;
+    }
 
-body.light header {
-    background: #ffffff;
-}
-
-body.light #search-input,
-body.light #tri-select,
-body.light #tri-tomes-select {
-    background: #ffffff;
-    color: #111;
-    border-color: #ddd;
-}
-
-body.light .carte-serie,
-body.light .carte-tome,
-body.light .fiche-tome-layout {
-    background: #ffffff;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-}
-
-body.light .page-serie-statut {
-    color: #d96a00;
+    .fiche-cover img {
+        max-width: 300px;
+        margin: 0 auto;
+    }
 }
