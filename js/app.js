@@ -63,14 +63,13 @@ function afficherTomes(series, serie) {
     triTomesSelect.style.display = "inline-block";
     triTomesSelect.value = "";
 
-    const boutonRetour = document.createElement("button");
-    boutonRetour.classList.add("btn-retour");
-    boutonRetour.innerHTML = "← Retour aux séries";
-    boutonRetour.addEventListener("click", () => {
-        triTomesSelect.style.display = "none";
-        afficherSeries(series);
-    });
-    container.appendChild(boutonRetour);
+    // Flèche retour minimaliste
+    const retour = document.createElement("div");
+    retour.classList.add("retour-fleche");
+    retour.innerHTML = "←";
+    retour.addEventListener("click", () => afficherTomes(series, serie));
+    container.appendChild(retour);
+
 
     const titre = document.createElement("h1");
     titre.classList.add("page-serie-titre");

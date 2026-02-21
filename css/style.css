@@ -290,3 +290,21 @@ main {
         margin: 0 auto;
     }
 }
+
+.retour-fleche {
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+    width: fit-content;
+    padding: 5px 10px;
+    border-radius: 8px;
+    background: rgba(0,0,0,0.3);
+    color: var(--accent);
+    margin-bottom: 20px;
+    transition: 0.2s;
+}
+
+.retour-fleche:hover {
+    background: rgba(237, 127, 16, 0.2);
+    transform: translateX(-3px);
+}
