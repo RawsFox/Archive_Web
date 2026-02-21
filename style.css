@@ -1,0 +1,292 @@
+/* ===========================
+   THEME GLOBAL
+=========================== */
+
+:root {
+    --bg: #303030;
+    --bg-elevated: #3a3a3a;
+    --bg-card: #424242;
+    --accent: #ED7F10;
+    --accent-soft: rgba(237, 127, 16, 0.18);
+    --text: #f5f5f5;
+    --text-muted: #b0b0b0;
+    --border-soft: #555;
+    --radius: 12px;
+    --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.5);
+    --transition-fast: 0.2s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, sans-serif;
+    background: #303030;
+    color: var(--text);
+    min-height: 100vh;
+}
+
+/* ===========================
+   HEADER + MENU
+=========================== */
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 40px;
+    background: #262626;
+    box-shadow: var(--shadow-soft);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.logo {
+    font-weight: 800;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.top-nav {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-link {
+    color: var(--text-muted);
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 999px;
+    transition: 0.2s;
+}
+
+.nav-link:hover {
+    color: var(--text);
+    background: rgba(255,255,255,0.05);
+}
+
+.nav-link.active {
+    color: var(--accent);
+    background: var(--accent-soft);
+}
+
+.nav-link.accent {
+    background: var(--accent);
+    color: #111;
+    font-weight: bold;
+}
+
+#theme-toggle {
+    background: #1f1f1f;
+    border: none;
+    color: var(--text);
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+#theme-toggle:hover {
+    background: #333;
+}
+
+/* ===========================
+   BARRE D’OUTILS
+=========================== */
+
+.toolbar {
+    width: 100%;
+    max-width: 1600px;
+    margin: 25px auto;
+    padding: 0 40px;
+    display: flex;
+    gap: 15px;
+}
+
+.toolbar input,
+.toolbar select {
+    background: #262626;
+    border: 1px solid var(--border-soft);
+    color: var(--text);
+    padding: 10px 16px;
+    border-radius: 999px;
+    outline: none;
+    transition: 0.2s;
+}
+
+.toolbar input {
+    flex: 1;
+}
+
+.toolbar input:focus,
+.toolbar select:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 2px var(--accent-soft);
+}
+
+/* ===========================
+   CONTENU PRINCIPAL
+=========================== */
+
+main {
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto 40px;
+    padding: 0 40px;
+}
+
+/* ===========================
+   PAGE COLLECTION (SÉRIES)
+=========================== */
+
+#liste-series {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+}
+
+.carte-serie {
+    background: var(--bg-card);
+    padding: 20px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-soft);
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.carte-serie:hover {
+    transform: translateY(-4px);
+    background: #4a4a4a;
+}
+
+.carte-serie h2 {
+    font-size: 1.2rem;
+    margin-bottom: 6px;
+}
+
+.carte-serie p {
+    color: var(--text-muted);
+}
+
+/* ===========================
+   PAGE SÉRIE (LISTE DES TOMES)
+=========================== */
+
+.page-serie-titre {
+    font-size: 2rem;
+    margin-bottom: 5px;
+}
+
+.page-serie-statut {
+    color: var(--accent);
+    margin-bottom: 25px;
+}
+
+.grille-tomes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+}
+
+.carte-tome {
+    background: var(--bg-card);
+    padding: 15px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-soft);
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.carte-tome:hover {
+    transform: translateY(-4px);
+    background: #4a4a4a;
+}
+
+.carte-tome img {
+    width: 100%;
+    border-radius: 10px;
+    aspect-ratio: 2/3;
+    object-fit: cover;
+}
+
+.carte-tome h3 {
+    margin-top: 10px;
+}
+
+/* ===========================
+   PAGE TOME (FICHE)
+=========================== */
+
+.fiche-tome-layout {
+    display: grid;
+    grid-template-columns: minmax(280px, 400px) 1fr;
+    gap: 40px;
+    background: #3a3a3a;
+    padding: 30px;
+    border-radius: 14px;
+    box-shadow: var(--shadow-soft);
+    width: 100%;
+    margin-top: 20px;
+}
+
+.fiche-cover img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.6);
+}
+
+.fiche-nav-tomes {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.nav-tome-btn {
+    background: var(--accent);
+    border: none;
+    padding: 10px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #111;
+    transition: 0.2s;
+}
+
+.nav-tome-btn:hover {
+    background: #ff9a3a;
+}
+
+.fiche-right h2 {
+    color: var(--accent);
+    margin-bottom: 10px;
+}
+
+.fiche-right p {
+    margin-bottom: 8px;
+    color: var(--text-muted);
+}
+
+.fiche-right p strong {
+    color: var(--text);
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media (max-width: 900px) {
+    .fiche-tome-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .fiche-cover img {
+        max-width: 300px;
+        margin: 0 auto;
+    }
+}
