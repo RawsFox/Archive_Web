@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Todo — The Archive</title>
+    <link rel="stylesheet" href="todo.css">
+</head>
+
+<body>
+
+    <aside class="sidebar">
+        <div class="logo">THE ARCHIVE</div>
+        <button id="toggle-menu" class="toggle-btn">⮜</button>
+
+        <nav>
+            <a href="../../index.html"><span class="icon">🏠</span><span class="label">Accueil</span></a>
+            <a href="../todo/index.html" class="active"><span class="icon">🗒️</span><span class="label">Todo</span></a>
+            <a href="../budget/index.html"><span class="icon">💰</span><span class="label">Budget</span></a>
+            <a href="../habits/index.html"><span class="icon">🔥</span><span class="label">Habitudes</span></a>
+            <a href="../sport/index.html"><span class="icon">🏋️</span><span class="label">Sport</span></a>
+            <a href="../bibliotheque/index.html"><span class="icon">📚</span><span class="label">Bibliothèque</span></a>
+        </nav>
+    </aside>
+
+    <main class="content">
+
+        <section class="todo-card">
+            <h1>Todo du jour</h1>
+
+            <ul id="todo-list"></ul>
+
+            <button id="add-btn" class="add-btn">+</button>
+        </section>
+
+        <!-- Fenêtre d'ajout -->
+        <div id="modal" class="modal hidden">
+            <div class="modal-content">
+                <h2>Nouvelle tâche</h2>
+                <input type="text" id="todo-input" placeholder="Nom de la tâche...">
+                <button id="save-btn" class="save-btn">Ajouter</button>
+                <button id="close-btn" class="close-btn">Annuler</button>
+            </div>
+        </div>
+
+    </main>
+
+    <script src="todo.js"></script>
+</body>
+</html>
