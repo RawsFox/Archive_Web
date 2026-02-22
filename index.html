@@ -8,27 +8,31 @@
 
 <body>
 
-    <!-- MENU LATÉRAL -->
-    <aside class="sidebar">
-        <div class="logo">THE ARCHIVE</div>
+<aside class="sidebar">
+    <div class="logo">THE ARCHIVE</div>
 
-        <nav>
-            <a href="modules/todo/index.html">🗒️ Todo</a>
-            <a href="modules/budget/index.html">💰 Budget</a>
-            <a href="modules/habits/index.html">🔥 Habitudes</a>
-            <a href="modules/sport/index.html">🏋️ Sport</a>
-            <a href="modules/bibliotheque/index.html">📚 Bibliothèque</a>
-        </nav>
-    </aside>
+    <button id="toggle-menu" class="toggle-btn">⮜</button>
 
- <main class="dashboard">
+    <nav>
+        <a href="modules/todo/index.html"><span class="icon">🗒️</span><span class="label">Todo</span></a>
+        <a href="modules/budget/index.html"><span class="icon">💰</span><span class="label">Budget</span></a>
+        <a href="modules/habits/index.html"><span class="icon">🔥</span><span class="label">Habitudes</span></a>
+        <a href="modules/sport/index.html"><span class="icon">🏋️</span><span class="label">Sport</span></a>
+        <a href="modules/bibliotheque/index.html"><span class="icon">📚</span><span class="label">Bibliothèque</span></a>
+    </nav>
+</aside>
 
+
+<main class="dashboard">
+
+    <!-- TODO (petit) -->
     <section class="card card-small todo">
         <h2>Todo du jour</h2>
         <ul id="todo-list"></ul>
         <button class="add-btn">+</button>
     </section>
 
+    <!-- BUDGET (grand) -->
     <section class="card card-large budget">
         <h2>Budget du mois</h2>
         <div class="budget-charts">
@@ -38,25 +42,25 @@
         <button class="add-btn">+</button>
     </section>
 
-    <section class="card card-small last-book">
-        <h2>Dernier livre ajouté</h2>
-        <div id="last-book-content"></div>
+    <!-- DERNIERS LIVRES (moyen-large) -->
+    <section class="card card-medium last-book">
+        <h2>Derniers livres ajoutés</h2>
+        <div id="last-books-content" class="book-row"></div>
         <button class="add-btn">+</button>
     </section>
 
+    <!-- SPORT (grand) -->
     <section class="card card-large sport">
         <h2>Sport du mois</h2>
         <div class="hexagon-chart"></div>
-    </section>
-
-    <section class="card card-medium last-review">
-        <h2>Dernière critique</h2>
-        <div id="last-review-content"></div>
         <button class="add-btn">+</button>
     </section>
 
-    <section class="card card-small empty">
-        <h2>Module futur</h2>
+    <!-- DERNIÈRES CRITIQUES (moyen) -->
+    <section class="card card-medium last-review">
+        <h2>Dernières critiques</h2>
+        <ul id="last-review-list"></ul>
+        <button class="add-btn">+</button>
     </section>
 
 </main>

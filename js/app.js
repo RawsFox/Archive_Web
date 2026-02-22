@@ -1,17 +1,17 @@
-// Chargement du dernier livre
+// 3 derniers livres
 fetch("data/bibliotheque.json")
     .then(r => r.json())
     .then(data => {
         const allTomes = data.flatMap(s => s.tomes);
-        const last = allTomes[allTomes.length - 1];
+        const lastThree = allTomes.slice(-3).reverse();
 
-        document.getElementById("last-book-content").innerHTML = `
-            <img src="${last.cover}" style="width:80px;border-radius:8px;">
-            <p>${last.nom}</p>
-        `;
+        document.getElementById("last-books-content").innerHTML =
+            lastThree.map(t => `
+                <img src="${t.cover}" alt="cover">
+            `).join("");
     });
 
-// Chargement de la dernière critique
+// 3 dernières critiques
 fetch("data/bibliotheque.json")
     .then(r => r.json())
     .then(data => {
@@ -19,10 +19,19 @@ fetch("data/bibliotheque.json")
             .flatMap(s => s.tomes)
             .filter(t => t.critique);
 
-        const last = critiques[critiques.length - 1];
+        const lastThree = critiques.slice(-3).reverse();
 
-        document.getElementById("last-review-content").innerHTML = `
-            <p><strong>${last.nom}</strong></p>
-            <p>${last.critique.substring(0, 80)}...</p>
-        `;
+        document.getElementById("last-review-list").innerHTML =
+            lastThree.map(t => `
+                <li>${t.nom}</li>
+            `).join("");
     });
+
+// Navigation
+const sidebar = document.querySelector(".sidebar");
+const toggleBtn = document.getElementById("toggle-menu");
+
+toggleBtn.onclick = () => {
+    sidebar.classList.toggle("collapsed");
+    toggleBtn.textContent = sidebar.classList.contains("collapsed") ? "⮞" : "⮜";
+};
