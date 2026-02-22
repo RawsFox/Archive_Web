@@ -23,7 +23,9 @@ jobs:
           username: ubuntu
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           source: "build.zip"
-          target: "/tmp/build.zip"
+          target: "/tmp"
+          strip_components: 0
+          rm: false
 
       - name: Run deploy script on server
         uses: appleboy/ssh-action@v0.1.10
