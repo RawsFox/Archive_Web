@@ -159,8 +159,10 @@ body {
 
 .budget-charts {
     display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
+    justify-content: center;      /* centre horizontalement */
+    align-items: center;          /* centre verticalement */
+    gap: 40px;                    /* espace entre les deux anneaux */
+    height: 150px;                /* réserve un espace propre */
 }
 
 .circle {
