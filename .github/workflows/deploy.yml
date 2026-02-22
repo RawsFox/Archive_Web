@@ -13,19 +13,8 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Install Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18'
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Build project
-        run: npm run build
-
-      - name: Zip build folder
-        run: zip -r build.zip dist/
+      - name: Zip frontend files
+        run: zip -r build.zip ./*
 
       - name: Copy build to server
         uses: appleboy/scp-action@v0.1.4
