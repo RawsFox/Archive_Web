@@ -1,0 +1,46 @@
+name: Deploy Frontend
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build project
+        run: npm run build
+
+      - name: Zip build folder
+        run: zip -r build.zip dist/
+
+      - name: Copy build to server
+        uses: appleboy/scp-action@v0.1.4
+        with:
+          host: the-archive-app.com
+          username: ubuntu
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          source: "build.zip"
+          target: "/tmp/build.zip"
+
+      - name: Run deploy script on server
+        uses: appleboy/ssh-action@v0.1.10
+        with:
+          host: the-archive-app.com
+          username: ubuntu
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            bash ~/deploy/deploy_frontend.sh
