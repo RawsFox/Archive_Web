@@ -8,7 +8,6 @@
 
 <body>
 
-    <!-- MENU LATÉRAL -->
     <aside class="sidebar">
         <div class="logo">THE ARCHIVE</div>
         <button id="toggle-menu" class="toggle-btn">⮜</button>
@@ -22,13 +21,29 @@
         </nav>
     </aside>
 
-    <!-- CONTENU -->
     <main class="dashboard">
 
         <!-- TODO -->
         <section class="card todo-card">
-            <h2>Todo du jour</h2>
-            <ul id="todo-list"></ul>
+            <div class="card-header">
+                <h2>Todo du jour</h2>
+                <div class="todo-filters">
+                    <label for="todo-sort">Tri :</label>
+                    <select id="todo-sort">
+                        <option value="created">Création</option>
+                        <option value="due">Échéance</option>
+                        <option value="category">Catégorie</option>
+                        <option value="priority">Priorité</option>
+                    </select>
+                </div>
+            </div>
+
+            <h3 class="sub-title">Tâches en cours</h3>
+            <ul id="todo-list" class="todo-list"></ul>
+
+            <h3 class="sub-title">Tâches terminées</h3>
+            <ul id="todo-done-list" class="todo-list done-list"></ul>
+
             <button id="add-todo" class="add-btn">+</button>
         </section>
 
@@ -44,18 +59,40 @@
                 <p>Meilleur score : <strong id="habit-best">0</strong> jours</p>
             </div>
 
-            <ul id="habits-list"></ul>
+            <ul id="habits-list" class="habits-list"></ul>
             <button id="add-habit" class="add-btn">+</button>
         </section>
 
     </main>
 
-    <!-- MODAL AJOUT -->
+    <!-- MODAL AJOUT / ÉDITION -->
     <div id="modal" class="modal hidden">
         <div class="modal-content">
             <h2 id="modal-title">Nouvel élément</h2>
-            <input type="text" id="modal-input" placeholder="Nom...">
-            <button id="save-btn" class="save-btn">Ajouter</button>
+
+            <div id="modal-todo-fields">
+                <input type="text" id="todo-title" placeholder="Nom de la tâche">
+                <textarea id="todo-desc" placeholder="Description"></textarea>
+                <label>Échéance :
+                    <input type="date" id="todo-due">
+                </label>
+                <label>Catégorie :
+                    <input type="text" id="todo-category" placeholder="Ex : Travail, Perso...">
+                </label>
+                <label>Priorité :
+                    <select id="todo-priority">
+                        <option value="3">Basse</option>
+                        <option value="2">Normale</option>
+                        <option value="1">Haute</option>
+                    </select>
+                </label>
+            </div>
+
+            <div id="modal-habit-fields">
+                <input type="text" id="habit-name" placeholder="Nom de l'habitude">
+            </div>
+
+            <button id="save-btn" class="save-btn">Enregistrer</button>
             <button id="close-btn" class="close-btn">Annuler</button>
         </div>
     </div>

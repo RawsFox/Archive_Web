@@ -113,6 +113,9 @@ body {
     border-radius: var(--radius);
     box-shadow: var(--shadow);
     position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 320px;
 }
 
 .card h2 {
@@ -120,40 +123,91 @@ body {
     color: var(--accent);
 }
 
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sub-title {
+    margin: 10px 0 5px;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
 /* LISTES */
 
-ul {
+.todo-list,
+.habits-list {
     list-style: none;
     padding: 0;
-    margin: 20px 0;
+    margin: 10px 0 0;
+    flex: 1;
+    overflow-y: auto;
 }
 
-li {
+.todo-item,
+.habit-item {
     background: #2A2A2A;
-    padding: 12px 16px;
+    padding: 10px 12px;
     border-radius: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
     display: flex;
-    align-items: center;
-    gap: 12px;
+    align-items: flex-start;
+    gap: 10px;
 }
 
-li input[type="checkbox"] {
-    transform: scale(1.3);
-    accent-color: var(--accent);
-}
-
-li span {
+.todo-main {
     flex: 1;
 }
 
+.todo-title-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.todo-title {
+    font-weight: 500;
+}
+
+.todo-meta {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-top: 4px;
+}
+
+.todo-desc {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-top: 4px;
+}
+
+.done-list .todo-title {
+    text-decoration: line-through;
+    color: var(--text-muted);
+}
+
+.todo-item input[type="checkbox"],
+.habit-item input[type="checkbox"] {
+    transform: scale(1.2);
+    accent-color: var(--accent);
+    margin-top: 3px;
+}
+
 .delete-btn {
-    margin-left: auto;
     background: none;
     border: none;
     color: var(--accent);
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     cursor: pointer;
+    margin-left: 4px;
+}
+
+/* DRAG & DROP */
+
+.todo-item.dragging {
+    opacity: 0.5;
 }
 
 /* BOUTON + */
@@ -166,9 +220,8 @@ li span {
     padding: 10px 16px;
     border-radius: 10px;
     cursor: pointer;
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
+    align-self: flex-end;
+    margin-top: 10px;
 }
 
 /* MODAL */
@@ -191,20 +244,41 @@ li span {
 
 .modal-content {
     background: var(--bg-card);
-    padding: 30px;
+    padding: 25px;
     border-radius: var(--radius);
-    width: 300px;
+    width: 340px;
     box-shadow: var(--shadow);
 }
 
-.modal-content input {
+.modal-content h2 {
+    margin-top: 0;
+    color: var(--accent);
+}
+
+.modal-content input,
+.modal-content textarea,
+.modal-content select {
     width: 100%;
-    padding: 10px;
+    padding: 8px;
     border-radius: 8px;
     border: none;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     background: #2A2A2A;
     color: var(--text);
+    font-family: inherit;
+    font-size: 0.9rem;
+}
+
+.modal-content label {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    display: block;
+    margin-bottom: 8px;
+}
+
+.modal-content textarea {
+    min-height: 60px;
+    resize: vertical;
 }
 
 .save-btn,
@@ -213,7 +287,7 @@ li span {
     padding: 10px;
     border-radius: 8px;
     border: none;
-    margin-top: 10px;
+    margin-top: 8px;
     cursor: pointer;
 }
 
@@ -232,12 +306,13 @@ li span {
 .habit-score {
     color: var(--accent);
     font-weight: bold;
-    margin-bottom: 10px;
+    margin: 8px 0;
 }
 
 .habit-stats p {
-    margin: 4px 0;
+    margin: 2px 0;
     color: var(--text-muted);
+    font-size: 0.85rem;
 }
 
 /* RESPONSIVE */
@@ -255,7 +330,7 @@ li span {
     }
 
     .add-btn {
-        bottom: 10px;
-        right: 10px;
+        font-size: 1.4rem;
+        padding: 8px 14px;
     }
 }
