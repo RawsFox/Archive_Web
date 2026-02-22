@@ -166,8 +166,8 @@ body {
 }
 
 .circle {
-    width: 90px;
-    height: 90px;
+    width: 85px;
+    height: 85px;
     border-radius: 50%;
     background: #2A2A2A;
     display: flex;
