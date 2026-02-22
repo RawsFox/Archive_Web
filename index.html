@@ -3,68 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <title>The Archive — Tableau de bord</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/home.css">
 </head>
 
 <body>
 
-<aside class="sidebar">
-    <div class="logo">THE ARCHIVE</div>
+    <!-- MENU LATÉRAL -->
+    <aside class="sidebar">
+        <div class="logo">THE ARCHIVE</div>
 
-    <button id="toggle-menu" class="toggle-btn">⮜</button>
+        <button id="toggle-menu" class="toggle-btn">⮜</button>
 
-    <nav>
-        <a href="modules/todo/index.html"><span class="icon">🗒️</span><span class="label">Todo</span></a>
-        <a href="modules/budget/index.html"><span class="icon">💰</span><span class="label">Budget</span></a>
-        <a href="modules/habits/index.html"><span class="icon">🔥</span><span class="label">Habitudes</span></a>
-        <a href="modules/sport/index.html"><span class="icon">🏋️</span><span class="label">Sport</span></a>
-        <a href="modules/bibliotheque/index.html"><span class="icon">📚</span><span class="label">Bibliothèque</span></a>
-    </nav>
-</aside>
+        <nav>
+            <a href="modules/todo/index.html">
+                <span class="icon">🗒️</span><span class="label">Todo</span>
+            </a>
+            <a href="modules/budget/index.html">
+                <span class="icon">💰</span><span class="label">Budget</span>
+            </a>
+            <a href="modules/habits/index.html">
+                <span class="icon">🔥</span><span class="label">Habitudes</span>
+            </a>
+            <a href="modules/sport/index.html">
+                <span class="icon">🏋️</span><span class="label">Sport</span>
+            </a>
+            <a href="modules/bibliotheque/index.html">
+                <span class="icon">📚</span><span class="label">Bibliothèque</span>
+            </a>
+        </nav>
+    </aside>
 
+    <!-- CONTENU PRINCIPAL -->
+    <main class="dashboard">
 
-<main class="dashboard">
+        <!-- TODO (petit) -->
+        <section class="card card-small todo">
+            <h2>Todo du jour</h2>
+            <ul id="todo-list">
+                <!-- Exemples statiques, à remplacer plus tard -->
+                <li>• Finir maquette The Archive</li>
+                <li>• Mettre à jour budget</li>
+                <li>• Lire 1 chapitre</li>
+            </ul>
+            <button class="add-btn">+</button>
+        </section>
 
-    <!-- TODO (petit) -->
-    <section class="card card-small todo">
-        <h2>Todo du jour</h2>
-        <ul id="todo-list"></ul>
-        <button class="add-btn">+</button>
-    </section>
+        <!-- BUDGET (grand) -->
+        <section class="card card-large budget">
+            <h2>Budget du mois</h2>
+            <div class="budget-charts">
+                <div class="circle"><span>Revenus</span></div>
+                <div class="circle"><span>Dépenses</span></div>
+            </div>
+            <div class="budget-info">
+                <p>Revenus : <strong id="rev-total">0€</strong></p>
+                <p>Dépenses : <strong id="dep-total">0€</strong></p>
+                <p>Solde : <strong id="solde">0€</strong></p>
+                <div class="progress-bar">
+                    <div id="progress-fill"></div>
+                </div>
+            </div>
+            <button class="add-btn">+</button>
+        </section>
 
-    <!-- BUDGET (grand) -->
-    <section class="card card-large budget">
-        <h2>Budget du mois</h2>
-        <div class="budget-charts">
-            <div class="circle"><span>Revenus</span></div>
-            <div class="circle"><span>Dépenses</span></div>
-        </div>
-        <button class="add-btn">+</button>
-    </section>
+        <!-- DERNIERS LIVRES (moyen) -->
+        <section class="card card-medium last-book">
+            <h2>Derniers livres ajoutés</h2>
+            <div id="last-books-content" class="book-row"></div>
+            <button class="add-btn">+</button>
+        </section>
 
-    <!-- DERNIERS LIVRES (moyen-large) -->
-    <section class="card card-medium last-book">
-        <h2>Derniers livres ajoutés</h2>
-        <div id="last-books-content" class="book-row"></div>
-        <button class="add-btn">+</button>
-    </section>
+        <!-- SPORT (grand) -->
+        <section class="card card-large sport">
+            <h2>Sport du mois</h2>
+            <div class="hexagon-chart"></div>
+            <div class="sport-stats">
+                <p>Kcal : <strong id="sport-kcal">0</strong></p>
+                <p>Distance : <strong id="sport-dist">0 km</strong></p>
+                <p>Séances : <strong id="sport-sessions">0</strong></p>
+                <p>Intensité : <strong id="sport-intensity">0%</strong></p>
+            </div>
+            <button class="add-btn">+</button>
+        </section>
 
-    <!-- SPORT (grand) -->
-    <section class="card card-large sport">
-        <h2>Sport du mois</h2>
-        <div class="hexagon-chart"></div>
-        <button class="add-btn">+</button>
-    </section>
+        <!-- DERNIÈRES CRITIQUES (petit) -->
+        <section class="card card-small last-review">
+            <h2>Dernières critiques</h2>
+            <ul id="last-review-list"></ul>
+            <button class="add-btn">+</button>
+        </section>
 
-    <!-- DERNIÈRES CRITIQUES (moyen) -->
-    <section class="card card-medium last-review">
-        <h2>Dernières critiques</h2>
-        <ul id="last-review-list"></ul>
-        <button class="add-btn">+</button>
-    </section>
+    </main>
 
-</main>
-
-    <script src="js/app.js"></script>
+    <script src="js/home.js"></script>
 </body>
 </html>
