@@ -30,3 +30,4 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             bash ~/deploy/deploy_frontend.sh
+
