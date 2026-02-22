@@ -1,0 +1,11 @@
+{
+    "todos": [
+        "Finir la page d'accueil",
+        "Préparer le module Budget"
+    ],
+    "habits": [
+        { "nom": "Boire 1L d'eau", "fait": false },
+        { "nom": "Lire 10 pages", "fait": false },
+        { "nom": "Faire 10 minutes de sport", "fait": false }
+    ]
+}

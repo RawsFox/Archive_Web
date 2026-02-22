@@ -1,0 +1,220 @@
+:root {
+    --bg: #303030;
+    --bg-card: #3A3A3A;
+    --accent: #ED7F10;
+    --text: #FFFFFF;
+    --text-muted: #B5B5B5;
+    --radius: 14px;
+    --shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Inter", sans-serif;
+    display: flex;
+}
+
+/* SIDEBAR */
+
+.sidebar {
+    width: 240px;
+    background: #262626;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    box-shadow: var(--shadow);
+    transition: width 0.3s ease;
+    position: relative;
+}
+
+.sidebar.collapsed {
+    width: 80px;
+}
+
+.logo {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--accent);
+    text-align: center;
+    transition: opacity 0.3s;
+}
+
+.sidebar.collapsed .logo {
+    opacity: 0;
+}
+
+.toggle-btn {
+    position: absolute;
+    top: 20px;
+    right: -15px;
+    background: var(--accent);
+    border: none;
+    color: #111;
+    padding: 6px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.sidebar nav a {
+    color: var(--text-muted);
+    text-decoration: none;
+    padding: 10px 14px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: 0.2s;
+}
+
+.sidebar nav a:hover,
+.sidebar nav a.active {
+    background: rgba(255,255,255,0.08);
+    color: var(--text);
+}
+
+.sidebar nav .label {
+    transition: opacity 0.3s;
+}
+
+.sidebar.collapsed nav .label {
+    opacity: 0;
+    width: 0;
+    overflow: hidden;
+}
+
+/* DASHBOARD */
+
+.dashboard {
+    flex: 1;
+    padding: 40px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+/* CARTES */
+
+.card {
+    background: var(--bg-card);
+    padding: 25px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    position: relative;
+}
+
+.card h2 {
+    margin-top: 0;
+    color: var(--accent);
+}
+
+/* LISTES */
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+li {
+    background: #2A2A2A;
+    padding: 12px 16px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+li input[type="checkbox"] {
+    transform: scale(1.3);
+    accent-color: var(--accent);
+}
+
+.delete-btn {
+    margin-left: auto;
+    background: none;
+    border: none;
+    color: var(--accent);
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+/* BOUTON + */
+
+.add-btn {
+    background: var(--accent);
+    border: none;
+    color: #111;
+    font-size: 1.6rem;
+    padding: 10px 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
+
+/* MODAL */
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.modal-content {
+    background: var(--bg-card);
+    padding: 30px;
+    border-radius: var(--radius);
+    width: 300px;
+    box-shadow: var(--shadow);
+}
+
+.modal-content input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    margin-bottom: 15px;
+    background: #2A2A2A;
+    color: var(--text);
+}
+
+.save-btn,
+.close-btn {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.save-btn {
+    background: var(--accent);
+    color: #111;
+}
+
+.close-btn {
+    background: #555;
+    color: var(--text);
+}
