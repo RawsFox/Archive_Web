@@ -21,52 +21,45 @@
         </nav>
     </aside>
 
-    <!-- CONTENU PRINCIPAL -->
-    <main class="dashboard">
+ <main class="dashboard">
 
-        <!-- Ligne 1 -->
-        <section class="card todo">
-            <h2>Todo du jour</h2>
-            <ul id="todo-list"></ul>
-            <button class="add-btn">+</button>
-        </section>
+    <section class="card card-small todo">
+        <h2>Todo du jour</h2>
+        <ul id="todo-list"></ul>
+        <button class="add-btn">+</button>
+    </section>
 
-        <section class="card budget">
-            <h2>Budget du mois</h2>
-            <div class="budget-charts">
-                <div class="circle">
-                    <span>Revenus</span>
-                </div>
-                <div class="circle">
-                    <span>Dépenses</span>
-                </div>
-            </div>
-            <button class="add-btn">+</button>
-        </section>
+    <section class="card card-large budget">
+        <h2>Budget du mois</h2>
+        <div class="budget-charts">
+            <div class="circle"><span>Revenus</span></div>
+            <div class="circle"><span>Dépenses</span></div>
+        </div>
+        <button class="add-btn">+</button>
+    </section>
 
-        <section class="card last-book">
-            <h2>Dernier livre ajouté</h2>
-            <div id="last-book-content"></div>
-            <button class="add-btn">+</button>
-        </section>
+    <section class="card card-small last-book">
+        <h2>Dernier livre ajouté</h2>
+        <div id="last-book-content"></div>
+        <button class="add-btn">+</button>
+    </section>
 
-        <!-- Ligne 2 -->
-        <section class="card sport">
-            <h2>Sport du mois</h2>
-            <div class="hexagon-chart"></div>
-        </section>
+    <section class="card card-large sport">
+        <h2>Sport du mois</h2>
+        <div class="hexagon-chart"></div>
+    </section>
 
-        <section class="card last-review">
-            <h2>Dernière critique</h2>
-            <div id="last-review-content"></div>
-            <button class="add-btn">+</button>
-        </section>
+    <section class="card card-medium last-review">
+        <h2>Dernière critique</h2>
+        <div id="last-review-content"></div>
+        <button class="add-btn">+</button>
+    </section>
 
-        <section class="card empty">
-            <h2>Module futur</h2>
-        </section>
+    <section class="card card-small empty">
+        <h2>Module futur</h2>
+    </section>
 
-    </main>
+</main>
 
     <script src="js/app.js"></script>
 </body>
