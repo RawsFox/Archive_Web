@@ -99,6 +99,23 @@
         "critique": "fire_force_tome_3.txt",
         "note": 9,
         "codebarre": "978-2505069287"
+      },
+            {
+        "id": 4,
+        "nom": "Fire Force Tome 4",
+        "cover": "img/fire_force_t4.jpg",
+        "tome": 4,
+        "résumé": "Afin de découvrir la cause du phénomène de combustion humaine, Shinra et ses camarades de la 8e brigade spéciale de la Fire Force ont pris d'assaut le Q.G. de la brigade ! De violents combats s'engagent et Shinra se retrouve face à l'impressionnante puissance de feu de Princesse Hibana, capitaine charismatique de la 5e brigade !! Shinra pourra-t-il vaincre cette femme après avoir découvert le lien de celle-ci avec Iris ?! Et quelle est donc la surprenante vérité qu'ils vont découvrir concernant le phénomène de combustion humaine ? Cette fois encore, ça va chauffer !!",
+        "sommaire": "1 à 5",
+        "auteur": "Atsushi Ohkubo",
+        "dessinateur": false,
+        "editeur_vf": "Kana éditions",
+        "editeur_vo": "Kodansha",
+        "univers": false,
+        "numerique": false,
+        "critique": "fire_force_tome_4.txt",
+        "note": 9,
+        "codebarre": "978-2505069287"
       }
     ]
   }
