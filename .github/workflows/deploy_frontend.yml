@@ -1,0 +1,32 @@
+name: Deploy Frontend v2
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Zip frontend files
+        run: zip -r build.zip index.html css js img modules data
+
+      - name: Copy build to server (real scp)
+        run: |
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > private_key
+          chmod 600 private_key
+          scp -i private_key -o StrictHostKeyChecking=no build.zip ubuntu@the-archive-app.com:/tmp/build.zip
+
+      - name: Run deploy script on server
+        uses: appleboy/ssh-action@v0.1.10
+        with:
+          host: the-archive-app.com
+          username: ubuntu
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            bash ~/deploy/deploy_frontend.sh
